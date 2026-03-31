@@ -15,6 +15,13 @@
 
 /* Estilos */
 
+body {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 header {
     display: flex;
 }
@@ -25,7 +32,9 @@ section {
     padding: 20px;
 }
 
-nav {
+/* Nav Atalhos */
+
+nav#atalhos {
     background-color: beige;
     display: flex;
     justify-content: space-around;
@@ -47,6 +56,25 @@ button.botao-nav {
     border-radius: 5px;
 }
 
-img.nav-icon {
-    width: 36px;
+/* Nav Footer */
+
+nav#footer {
+    background-color: #000;
+    display: flex;
+    justify-content: space-around;
+    color: #FFF;
+}
+
+button.botao-footer {
+    background-color: rgb(0, 0, 0);
+    color: #FFF;
+    width: fit-content;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+div.div-botao-footer {
+    display: flex;
+    align-items: center;
 }
