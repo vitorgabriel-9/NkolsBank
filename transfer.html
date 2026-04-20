@@ -18,22 +18,18 @@
         </header>
 
         <section>
-            <h1>Olá, Usuário.</h1>
+            <h1>Realize a sua transferência.</h1>
             <p style="padding-top: 10px;">Saldo na conta: R$ 0,00</p>
         </section>
 
-        <nav id="atalhos">
-            <div class="div-botao-nav">
-                <button class="botao-nav"><img src="icons/calculadora.png" alt="Calculadora"></button>
-                <p>Calculadora</p>
+        <nav id="nav-transfer">
+            <div class="area-transfer">
+                <label for="valor">Quanto você vai transferir?</label>
+                <input type="number" name="valor" id="valor" placeholder="Valor em Reais R&dollar;">
             </div>
-            <div class="div-botao-nav">
-                <button class="botao-nav"><img src="icons/pesquisa.png" alt="Pesquisa"></button>
-                <p>Pesquisa</p>
-            </div>
-            <div class="div-botao-nav">
-                <button class="botao-nav"><img src="icons/estatisticas.png" alt="Estatísticas"></button>
-                <p>Estatísticas</p>
+            <div class="area-transfer">
+                <label for="toUser">Para quem você vai transferir?</label>
+                <input type="text" name="toUser" id="toUser" placeholder="Chave Pix do Usuário">
             </div>
         </nav>
     </div>
@@ -41,11 +37,11 @@
     <footer>
         <nav id="footer">
             <div class="div-botao-footer">
-                <button class="botao-footer"><img src="icons/inicio.png" alt="Início"></button>
-                <p>Início</p>
+                <button class="botao-footer"><a href="index.html"><img src="icons/inicio.png" alt="Início"></a></button>
             </div>
             <div class="div-botao-footer">
-                <button class="botao-footer"><a href="transfer.html"><img src="icons/transferir.png" alt="Transferir"></a></button>
+                <button class="botao-footer"><img src="icons/transferir.png" alt="Transferir"></button>
+                <p>Transferência</p>
             </div>
             <div class="div-botao-footer">
                 <button class="botao-footer"><img src="icons/configuracoes.png" alt="Configurações"></button>
