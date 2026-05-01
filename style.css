@@ -1,11 +1,8 @@
-/* Regras Gerais */
-
 * {
-    padding: 0;
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    border: none;
-    font-family: 'DM-Sans';
+    font-family: 'DM-Sans', sans-serif;
 }
 
 @font-face {
@@ -13,85 +10,111 @@
     src: url('fonts/DMSans.ttf');
 }
 
-/* Estilos */
-
 body {
-    display: flex;
     height: 100vh;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-header {
     display: flex;
-}
-
-section {
-    background-color: #1A41A5ff;
-    color: #FFF;
-    padding: 20px;
-}
-
-/* Nav Atalhos */
-
-nav#atalhos {
-    background-color: beige;
-    display: flex;
-    justify-content: space-around;
-    padding: 20px;
-}
-
-div.div-botao-nav {
-    display: flex;
-    flex-direction: column;
-    width: 100px;
-    text-align: center;
-}
-
-button.botao-nav {
-    background-color: rgb(0, 0, 0);
-    color: #FFF;
-    padding: 10px;
-    margin: 5px;
-    border-radius: 5px;
-}
-
-/* Nav Footer */
-
-nav#footer {
-    background-color: #000;
-    display: flex;
-    justify-content: space-around;
-    color: #FFF;
-}
-
-button.botao-footer {
-    background-color: rgb(0, 0, 0);
-    color: #FFF;
-    width: fit-content;
-    padding: 5px;
-    margin: 5px;
-    border-radius: 5px;
-}
-
-div.div-botao-footer {
-    display: flex;
+    justify-content: center;
     align-items: center;
+    background: #f4f6fa;
 }
 
-/* Nav Transferência */
-
-div.area-transfer {
-    margin: 30px;
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
 }
 
-div.area-transfer > label {
-    font-size: 1.3em;
-    padding: 3px;
+.login-box {
+    background: #FFF;
+    width: 100%;
+    max-width: 420px;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
-div.area-transfer > input {
-    border: 1px solid #000;
-    padding: 5px;
-    width: 200px;
+.login-box h1 {
+    text-align: center;
+    color: #1A41A5;
+    margin-bottom: 10px;
+    font-size: 34px;
+}
+
+.login-box p {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #1A41A5;
+}
+
+.opcoes {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.opcoes a {
+    color: #1A41A5;
+    text-decoration: none;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    background: #1A41A5;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #143382;
+}
+
+.loading {
+    width: 28px;
+    height: 28px;
+    border: 3px solid #ddd;
+    border-top: 3px solid #1A41A5;
+    border-radius: 50%;
+    margin: 15px auto;
+    display: none;
+    animation: girar 1s linear infinite;
+}
+
+@keyframes girar {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#msg {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+@media(max-width:500px) {
+    .login-box {
+        padding: 30px 20px;
+    }
 }

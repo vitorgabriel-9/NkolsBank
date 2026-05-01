@@ -1,60 +1,44 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NkolsBank - Login</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <title>NkolsBank</title>
 </head>
 
 <body>
 
-    <div id="conteudo">
-        <header>
-            <img src="favicon.ico" alt="Ícone do App" style="width: 35px;">
-            <p style="padding: 8px 5px; font-weight: bolder;">NkolsBank</p>
-        </header>
+    <div class="container">
 
-        <section>
-            <h1>Olá, Usuário.</h1>
-            <p style="padding-top: 10px;">Saldo na conta: R$ 0,00</p>
-        </section>
+        <div class="login-box">
 
-        <nav id="atalhos">
-            <div class="div-botao-nav">
-                <button class="botao-nav"><img src="icons/calculadora.png" alt="Calculadora"></button>
-                <p>Calculadora</p>
-            </div>
-            <div class="div-botao-nav">
-                <button class="botao-nav"><img src="icons/pesquisa.png" alt="Pesquisa"></button>
-                <p>Pesquisa</p>
-            </div>
-            <div class="div-botao-nav">
-                <button class="botao-nav"><img src="icons/estatisticas.png" alt="Estatísticas"></button>
-                <p>Estatísticas</p>
-            </div>
-        </nav>
+            <h1>NkolsBank</h1>
+            <p>Acesse sua conta com segurança</p>
+
+            <form id="formLogin">
+                
+                <input type="number" id="cpf" placeholder="CPF">
+                <input type="password" id="senha" placeholder="Senha" pattern="^\S+$" title="Não use espaços">
+
+                <div class="opcoes">
+                    <a href="#">Esqueci a senha</a>
+                </div>
+
+                <button type="submit">Entrar</button>
+
+                <div class="loading" id="loading"></div>
+
+                <span id="msg"></span>
+
+            </form>
+
+        </div>
+
     </div>
 
-    <footer>
-        <nav id="footer">
-            <div class="div-botao-footer">
-                <button class="botao-footer"><img src="icons/inicio.png" alt="Início"></button>
-                <p>Início</p>
-            </div>
-            <div class="div-botao-footer">
-                <button class="botao-footer"><a href="transfer.html"><img src="icons/transferir.png" alt="Transferir"></a></button>
-            </div>
-            <div class="div-botao-footer">
-                <button class="botao-footer"><img src="icons/configuracoes.png" alt="Configurações"></button>
-            </div>
-        </nav>
-    </footer>
-
-    <a href="login.html">Entrar</a>
-
+    <script src="script.js"></script>
 </body>
 
 </html>
