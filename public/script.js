@@ -22,7 +22,7 @@ form.addEventListener("submit", function (e) {
         msg.innerHTML = "Login realizado com sucesso!";
         msg.style.color = "green";
         setTimeout(() => {
-            window.location.replace("./views/inicio/index.html");
+            window.location.replace("./inicio/index.html");
         }, 1900);
     }, 1800);
 
