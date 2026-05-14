@@ -4,46 +4,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="style.css">
+
     <link rel="shortcut icon" href="../icons/favicon.ico" type="image/x-icon">
+
     <title>NkolsBank</title>
 </head>
 
 <body>
 
     <div id="conteudo">
+
         <header>
-            <img src="../icons/favicon.ico" alt="Ícone do App" style="width: 35px;">
-            <p style="padding: 8px 5px; font-weight: bolder;">NkolsBank</p>
+
+            <img
+                src="../icons/favicon.ico"
+                alt="Ícone do App"
+                style="width: 35px;"
+            >
+
+            <p style="padding: 8px 5px; font-weight: bolder;">
+                NkolsBank
+            </p>
+
         </header>
 
         <section>
+
             <h1>Realize a sua transferência.</h1>
-            <p style="padding-top: 10px;">Saldo na conta: R$ 0,00</p>
+
+            <p
+                id="saldo"
+                style="padding-top: 10px;"
+            >
+                Saldo na conta: R$ 0,00
+            </p>
+
         </section>
 
-        <nav id="nav-transfer">
-            <div class="area-transfer">
-                <label for="valor">Quanto você vai transferir?</label>
-                <input type="number" name="valor" id="valor" placeholder="Valor em Reais R&dollar;">
-            </div>
-            <div class="area-transfer">
-                <label for="toUser">Para quem você vai transferir?</label>
-                <input type="text" name="toUser" id="toUser" placeholder="Chave Pix do Usuário">
-            </div>
-        </nav>
+        <!-- FORMULÁRIO -->
+        <form id="formTransferencia">
+
+            <nav id="nav-transfer">
+
+                <div class="area-transfer">
+
+                    <label for="valor">
+                        Quanto você vai transferir?
+                    </label>
+
+                    <input
+                        type="number"
+                        name="valor"
+                        id="valor"
+                        placeholder="Valor em Reais R$"
+                        required
+                    >
+
+                </div>
+
+                <div class="area-transfer">
+
+                    <label for="toUser">
+                        Para quem você vai transferir?
+                    </label>
+
+                    <input
+                        type="email"
+                        name="toUser"
+                        id="toUser"
+                        placeholder="Email do usuário"
+                        required
+                    >
+
+                </div>
+
+                <br>
+
+                <button type="submit">
+                    Transferir
+                </button>
+
+                <br><br>
+
+                <span id="msg"></span>
+
+            </nav>
+
+        </form>
+
     </div>
 
     <footer>
+
         <nav id="footer">
+
             <div class="div-botao-footer">
-                <button class="botao-footer"><a href="../inicio/index.html"><img src="../icons/inicio.png" alt="Início"></a></button>
+
+                <button class="botao-footer">
+
+                    <a href="../inicio/index.html">
+
+                        <img
+                            src="../icons/inicio.png"
+                            alt="Início"
+                        >
+
+                    </a>
+
+                </button>
+
             </div>
+
             <div class="div-botao-footer">
+<<<<<<< HEAD
                 <button class="botao-footer"><img src="../icons/configuracoes.png" alt="Configurações"></button>
+=======
+
+                <button class="botao-footer">
+
+                    <img
+                        src="../icons/transferir.png"
+                        alt="Transferir"
+                    >
+
+                </button>
+
+                <p>Transferência</p>
+
             </div>
+
+            <div class="div-botao-footer">
+
+                <button class="botao-footer">
+
+                    <img
+                        src="../icons/configuracoes.png"
+                        alt="Configurações"
+                    >
+
+                </button>
+
+>>>>>>> adafff6 (Descrição das alterações)
+            </div>
+
         </nav>
+
     </footer>
+
+    <script src="/js/transferir.js"></script>
 
 </body>
 
