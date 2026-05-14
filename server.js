@@ -3,22 +3,9 @@ const app = express();
 const path = require("path");
 
 const mongoose = require("mongoose");
+
 const Usuario = require("./models/Usuario");
 const Transferencia = require("./models/Transferencia");
-
-// ==========================
-// CONEXÃO MONGODB
-// ==========================
-
-mongoose.connect(
-    "mongodb+srv://carlosdante10_db_user:uv4VHd1TZMCzneMa@cluster0.6autl2r.mongodb.net/banco?retryWrites=true&w=majority"
-)
-.then(() => {
-    console.log("MongoDB conectado!");
-})
-.catch((err) => {
-    console.log("Erro ao conectar:", err);
-});
 
 // ==========================
 // CONFIGURAÇÕES
@@ -26,6 +13,24 @@ mongoose.connect(
 
 app.use(express.json());
 app.use(express.static("public"));
+
+// ==========================
+// CONEXÃO MONGODB
+// ==========================
+
+mongoose.connect(
+    "mongodb://carlosdante10_db_user:uv4VHd1TZMCzneMa@ac-cnsoigl-shard-00-00.6autl2r.mongodb.net:27017,ac-cnsoigl-shard-00-01.6autl2r.mongodb.net:27017,ac-cnsoigl-shard-00-02.6autl2r.mongodb.net:27017/banco?ssl=true&replicaSet=atlas-glqq49-shard-0&authSource=admin&retryWrites=true&w=majority&appName=Cluster0",
+    {
+        serverSelectionTimeoutMS: 5000
+    }
+)
+.then(() => {
+    console.log("MongoDB conectado!");
+})
+.catch((err) => {
+    console.log("Erro ao conectar MongoDB:");
+    console.log(err);
+});
 
 // ==========================
 // ROTA PRINCIPAL
@@ -59,7 +64,7 @@ app.post("/cadastro", async (req, res) => {
             nome,
             email,
             senha,
-            saldo: 0
+            saldo: 1000
         });
 
         await usuario.save();
@@ -69,6 +74,8 @@ app.post("/cadastro", async (req, res) => {
         });
 
     } catch (erro) {
+
+        console.log(erro);
 
         res.status(500).json({
             mensagem: "Erro no servidor"
@@ -108,6 +115,8 @@ app.post("/login", async (req, res) => {
 
     } catch (erro) {
 
+        console.log(erro);
+
         res.status(500).json({
             mensagem: "Erro no servidor"
         });
@@ -130,8 +139,15 @@ app.post("/transferir", async (req, res) => {
             valor
         } = req.body;
 
-        // Converter valor para número
         valor = Number(valor);
+
+        if (valor <= 0) {
+
+            return res.status(400).json({
+                mensagem: "Valor inválido"
+            });
+
+        }
 
         const remetente = await Usuario.findById(remetenteId);
 
@@ -147,7 +163,15 @@ app.post("/transferir", async (req, res) => {
 
         }
 
-        if (remetente.saldo < valor) {
+        if (remetente.email === destinatario.email) {
+
+            return res.status(400).json({
+                mensagem: "Não é possível transferir para você mesmo"
+            });
+
+        }
+
+        if (Number(remetente.saldo) < valor) {
 
             return res.status(400).json({
                 mensagem: "Saldo insuficiente"
@@ -156,22 +180,24 @@ app.post("/transferir", async (req, res) => {
         }
 
         // Atualizar saldos
-        remetente.saldo = Number(remetente.saldo) - valor;
+
+        remetente.saldo =
+            Number(remetente.saldo) - valor;
 
         destinatario.saldo =
             Number(destinatario.saldo) + valor;
 
         // Salvar alterações
+
         await remetente.save();
         await destinatario.save();
 
-        // Criar transferência
+        // Registrar transferência
+
         const transferencia = new Transferencia({
 
             remetente: remetente._id,
-
             destinatario: destinatario._id,
-
             valor
 
         });
