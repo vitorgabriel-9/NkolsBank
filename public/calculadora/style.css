@@ -59,7 +59,7 @@ body {
     border: 1px solid #000000;
     text-align: right;
     font-size: 2.8rem;
-    color: var(--text-white);
+    color: var(--text-black);
     margin-bottom: 20px;
     padding: 0 10px;
     box-sizing: border-box;
