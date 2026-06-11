@@ -19,7 +19,7 @@
 
         <section>
             <h1>Olá, Usuário.</h1>
-            <p style="padding-top: 10px;">Saldo na conta: R$ 0,00</p>
+            <p style="padding-top: 10px;" id="saldo">Saldo na conta: R$ 0,00</p>
         </section>
 
         <nav id="atalhos">
@@ -51,11 +51,28 @@
                 <p>Início</p>
             </div>
             <div class="div-botao-footer">
-                <a class=" link-nav" href="../configurações/index.HTML"><button class="botao-footer"><img src="../icons/configuracoes.png" alt="Configurações"></button></a>
+                <a class=" link-nav" href="../configurações/index.HTML"><button class="botao-footer"><img
+                            src="../icons/configuracoes.png" alt="Configurações"></button></a>
             </div>
         </nav>
     </footer>
 
+    <script>
+        const saldoTexto = document.getElementById("saldo");
+
+        // Pegar usuário salvo no login
+        const usuario = JSON.parse(
+            localStorage.getItem("usuario")
+        );
+
+        // Mostrar saldo na tela
+        if (usuario) {
+
+            saldoTexto.innerHTML =
+                `Saldo na conta: R$ ${usuario.saldo}`;
+
+        }
+    </script>
 </body>
 
 </html>
