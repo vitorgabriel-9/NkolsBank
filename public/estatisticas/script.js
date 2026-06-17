@@ -1,6 +1,6 @@
 // Variáveis Globais de Estado do App
-let totalGastoAcumulado = 1240.00;
-let valoresCategorias = [450, 220, 180, 390]; // Ordem: [Alimentação, Transporte, Lazer, Contas]
+let totalGastoAcumulado = 0;
+let valoresCategorias = [0, 0, 0, 0]; // Ordem: [Alimentação, Transporte, Lazer, Contas]
 const labelsCategorias = ['Alimentação', 'Transporte', 'Lazer', 'Contas'];
 
 // --- 1. CONFIGURAÇÃO DO GRÁFICO DE PIZZA (DOUGHNUT) ---
@@ -18,11 +18,36 @@ const graficoPizza = new Chart(ctxCategory, {
     options: {
         responsive: true,
         maintainAspectRatio: false,
-        plugins: { 
-            legend: { position: 'right' } 
+        plugins: {
+            legend: { position: 'right' }
         }
     }
 });
+
+const saldoTexto = document.getElementById("saldo");
+const valorGasto = document.getElementById("valorGasto");
+const totalGastoTexto = document.getElementById("totalGastoTexto");
+const btn_concluir = document.getElementById("concluir")
+
+btn_concluir.addEventListener("click", () => {
+    totalGastoTexto.innerHTML = totalGastoTexto - valorGasto.value;
+    saldoUsuario -= valorGasto.value;
+    saldoTexto.innerHTML = `R$ ${saldoUsuario.toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+})
+
+// Pegar usuário salvo no login
+const usuario = JSON.parse(
+    localStorage.getItem("usuario")
+);
+
+let saldoUsuario = usuario.saldo;
+
+// Mostrar saldo na tela
+if (usuario) {
+
+    saldoTexto.innerHTML = `R$ ${saldoUsuario.toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+
+}
 
 // --- 2. CONFIGURAÇÃO DO GRÁFICO DE LINHA (EVOLUÇÃO DO SALDO) ---
 const ctxEvolution = document.getElementById('evolutionChart').getContext('2d');
@@ -53,16 +78,16 @@ new Chart(ctxEvolution, {
 // --- 3. LOGICA PARA CAPTURAR E ADICIONAR NOVO GASTO ---
 const formulario = document.getElementById('gastoForm');
 
-formulario.addEventListener('submit', function(event) {
+formulario.addEventListener('submit', function (event) {
     event.preventDefault(); // Impede a página de recarregar no envio
 
     // Captura os valores dos campos
     const valorInput = document.getElementById('valorGasto');
     const categoriaInput = document.getElementById('categoriaGasto');
-    
+
     const valor = parseFloat(valorInput.value);
     const categoriaSelecionada = categoriaInput.value;
-    
+
     // Encontra o índice da categoria no array
     const indice = labelsCategorias.indexOf(categoriaSelecionada);
 

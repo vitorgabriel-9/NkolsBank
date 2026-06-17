@@ -32,6 +32,20 @@ section {
     padding: 20px;
 }
 
+button#btn-transfer {
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 3px 5px;
+    background-color: #1A41A5ff;
+    color: #FFF;
+    margin: 0 30px;
+}
+
+button#btn-transfer:hover {
+    background-color: rgb(16, 49, 133);
+    font-weight: bold;
+}
+
 /* Nav Atalhos */
 
 nav#atalhos {

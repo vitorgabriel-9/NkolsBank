@@ -1,41 +1,47 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora BankBlue</title>
+    <title>NkolsBank</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="/icons/favicon.ico" type="image/x-icon">
 </head>
+
 <body>
+    <header>
+        <img src="../icons/favicon.ico" alt="Ícone do App" style="width: 35px;">
+        <a href="/inicio/index.html" style="padding: 8px 5px; font-weight: bolder; color: blue;">NkolsBank</a>
+    </header>
     <div class="calculator-container">
         <div class="header">
-            <div class ="badge">CALCULADORA</div>
-            
+            <div class="badge">CALCULADORA</div>
         </div>
-        
+
         <input type="text" id="display" disabled placeholder="0">
-        
+
         <div class="keypad">
             <button class="btn-tool" onclick="clearDisplay()">C</button>
             <button class="btn-tool" onclick="deleteLast()">DEL</button>
             <button class="btn-op" onclick="insert('%')">%</button>
             <button class="btn-op" onclick="insert('/')">÷</button>
-            
+
             <button onclick="insert('7')">7</button>
             <button onclick="insert('8')">8</button>
             <button onclick="insert('9')">9</button>
             <button class="btn-op" onclick="insert('*')">×</button>
-            
+
             <button onclick="insert('4')">4</button>
             <button onclick="insert('5')">5</button>
             <button onclick="insert('6')">6</button>
             <button class="btn-op" onclick="insert('-')">-</button>
-            
+
             <button onclick="insert('1')">1</button>
             <button onclick="insert('2')">2</button>
             <button onclick="insert('3')">3</button>
             <button class="btn-op" onclick="insert('+')">+</button>
-            
+
             <button class="btn-zero" onclick="insert('0')">0</button>
             <button onclick="insert('.')">.</button>
             <button class="btn-equal" onclick="calculate()">=</button>
@@ -43,4 +49,5 @@
     </div>
     <script src="script.js"></script>
 </body>
+
 </html>
